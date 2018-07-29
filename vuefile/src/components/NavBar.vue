@@ -1,9 +1,15 @@
 <template>
-  <nav>
+  <nav id="navbar-container">
     <div class="logo">
       <a href="#">duchunter.github.io</a>
     </div>
-    <input type="checkbox" id="nav" class="hidden">
+    <input
+      type="checkbox"
+      id="nav"
+      class="hidden"
+      v-model=checked
+      @change=handleOverlay
+    />
     <label for="nav" class="nav-btn">
       <i></i>
       <i></i>
@@ -21,7 +27,19 @@
 
 <script>
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  data() {
+    return {
+      checked: false
+    }
+  },
+
+  methods: {
+    handleOverlay(e) {
+      document.getElementById('navbar-container').style.zIndex =
+        this.checked ? 180 : 80;
+    }
+  }
 }
 </script>
 
@@ -30,11 +48,11 @@ export default {
   box-sizing: border-box;
 }
 
-nav {
+#navbar-container {
   position: fixed;
   width: 100%;
   height: 6vh;
-  z-index: 200;
+  z-index: 80;
   font-family: Orbitron;
   display: flex;
   align-items: center;
@@ -140,7 +158,7 @@ nav ul li a {
     width: 48px;
     height: 48px;
     cursor: pointer;
-    z-index: 9999;
+    z-index: 199;
     border-radius: 50%;
   }
 
@@ -189,7 +207,7 @@ nav ul li a {
 }
 
 #nav:checked ~ .nav-wrapper {
-  z-index: 9990;
+  z-index: 190;
   opacity: 1;
 }
 

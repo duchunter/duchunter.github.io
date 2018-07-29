@@ -75,7 +75,7 @@ export default {
           this.text = this.getLocalTime().split('');
           this.clockInterval = setInterval(() => {
             this.text = this.getLocalTime().split('');
-          }, 60000);
+          }, 30000);
         } else {
           clearInterval(this.clockInterval);
           this.text = quote.split('');
@@ -104,7 +104,7 @@ export default {
 
 .clock-content {
   font-family: Orbitron;
-  font-size: 1.5em;
+  font-size: 3.5vw;
 }
 
 .clock-character {
@@ -120,4 +120,23 @@ export default {
   max-height: 30vh;
   margin-bottom: 10vh;
 }
+
+@media screen and (min-width: 800px) {
+  .clock-content {
+    font-size: 3.6vh;
+  }
+}
+
+@media screen and (max-height: 550px) {
+  .clock-content {
+    font-size: 2.6vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .clock-logo {
+    margin-bottom: 5vw;
+  }
+}
+
 </style>
