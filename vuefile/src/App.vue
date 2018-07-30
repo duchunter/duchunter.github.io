@@ -2,21 +2,25 @@
   <div id="app">
     <div class="container">
       <NavBar />
-      <Clock />
-      <Orbit />
+      <LandingScreen />
     </div>
   </div>
 </template>
 
 <script>
-import Orbit from './components/Orbit'
-import Clock from './components/Clock'
+import LandingScreen from './containers/LandingScreen'
 import NavBar from './components/NavBar'
 export default {
   name: 'App',
+  data() {
+    return {
+      view: 'LandingScreen'
+    }
+  },
+
   components: {
-    Clock, Orbit, NavBar
-  }
+    NavBar, LandingScreen,
+  },
 }
 </script>
 
@@ -31,6 +35,7 @@ body {
   height: 100vh;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
 }
 
 #app {
@@ -47,5 +52,45 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
+  background-color: black;
+}
+
+#app:hover {
+  animation: animate .2s infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    background-position: 1vh 0;
+  }
+  20% {
+    background-position: -1vh 0;
+  }
+  30% {
+    background-position: 1vh 0;
+  }
+  40% {
+    background-position: -1vh 1vw;
+  }
+  50% {
+    background-position: -1vh 0;
+  }
+  60% {
+    background-position: -1vh 0;
+  }
+  70% {
+    background-position: 0 1vw;
+  }
+  80% {
+    background-position: -1vh -1vw;
+  }
+  100% {
+    background-position: 0 0;
+    filter: hue-rotate(360deg);
+  }
 }
 </style>

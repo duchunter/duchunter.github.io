@@ -11,6 +11,7 @@
 
 <script>
 const quote = 'ADAPT IMPROVE EVOLE';
+const quote2 = 'NOT ENOUGH MINERALS';
 const shuffleSpeed = 60;
 const changeTextSpeed = 3000;
 

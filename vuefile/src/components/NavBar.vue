@@ -38,7 +38,7 @@ export default {
     handleOverlay(e) {
       document.getElementById('navbar-container').style.zIndex =
         this.checked ? 180 : 80;
-    }
+    },
   }
 }
 </script>
